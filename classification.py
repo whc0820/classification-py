@@ -4,7 +4,7 @@ from functools import partial
 import matplotlib.pyplot as plt
 import numpy as np
 
-img_filename = 'image1.jpg'
+img_filename = 'image1.png'
 img_format = img_filename.split('.')[1]
 
 img = plt.imread(img_filename)
