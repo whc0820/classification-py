@@ -14,7 +14,6 @@ pixel_size = img.shape[2]
 
 pixels = np.reshape(img, (img_height * img_width, pixel_size))
 
-
 def get_cluster_center(label, centers):
     return centers[label]
 
@@ -37,11 +36,13 @@ def add_image(fig, img, pos, n_clusters):
 fig = plt.figure(num="K-Means")
 add_image(fig, img, 1, 0)
 
-for i in range(2, 10):
+ks = np.array([2, 3, 4, 5, 6, 7, 8, 9])
+for i in ks:
     kmeans = KMeans(n_clusters=i, random_state=10).fit(pixels)
     kmeans_img = map(
         partial(get_cluster_center, centers=kmeans.cluster_centers_), kmeans.labels_)
     kmeans_img = np.array(list(kmeans_img))
     kmeans_img = np.reshape(kmeans_img, (img_height, img_width, pixel_size))
     add_image(fig, kmeans_img, i, i)
+
 plt.show()
