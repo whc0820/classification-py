@@ -1,0 +1,2 @@
+source env/Scripts/activate;
+py classification.py;

@@ -5,7 +5,7 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
-img_filename = 'ocean.jpg'
+img_filename = 'example.png' # replace with the image you like
 img_format = img_filename.split('.')[1]
 
 img = plt.imread(img_filename)
@@ -24,7 +24,7 @@ def add_image(fig, img, pos, k):
     if k == 0:
         ax.set_title('original')
     else:
-        ax.set_title('k={}'.format(k))
+        ax.set_title(f'k = {k}')
     ax.set_xticks([])
     ax.set_yticks([])
 
@@ -49,6 +49,7 @@ for i, k in enumerate(ks):
     add_image(fig, kmeans_img, i + 2, k)
     
     end_time = time.time()
-    print('k = {}, time spent: {}'.format(k, end_time - start_time))
+    print(f'k = {k}, time spent: {end_time - start_time}')
 
+print('Done!')
 plt.show()
